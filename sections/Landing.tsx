@@ -18,7 +18,7 @@ function Lantern({
 }) {
   return (
     <motion.div
-      className={`absolute z-30 flex flex-col items-center pointer-events-none ${className || ''}`}
+      className={`absolute z-30 flex flex-col items-center pointer-events-none will-change-transform ${className || ''}`}
       style={{ ...style, transformOrigin: 'top center', scale: size }}
       animate={{ rotate: [-3, 3, -3] }}
       transition={{ duration: 7, delay, repeat: Infinity, ease: 'easeInOut' }}
@@ -30,7 +30,7 @@ function Lantern({
       />
 
       {/* Lantern */}
-      <div className="relative flex flex-col items-center drop-shadow-2xl">
+      <div className="relative flex flex-col items-center shadow-md">
         {/* Top hat */}
         <div className="w-0 h-0 border-l-[14px] border-l-transparent border-r-[14px] border-r-transparent border-b-[18px] border-b-[#3D251E]" />
         <div className="w-[36px] h-[6px] bg-[#2A1810] rounded-sm -mt-[2px]" />
@@ -39,7 +39,7 @@ function Lantern({
         <div className="w-[30px] h-[40px] border-x-[2.5px] border-[#3D251E] relative flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-[#FDE08B] opacity-90" />
           {/* Inner Glow */}
-          <div className="w-6 h-6 bg-[#FFF] rounded-full blur-[4px]" />
+          <div className="w-5 h-5 bg-[#FFF] rounded-full opacity-80" />
           {/* Vertical Grid Line */}
           <div className="absolute top-0 bottom-0 left-1/2 w-[2px] bg-[#3D251E] -translate-x-1/2" />
           {/* Horizontal Grid Line */}
@@ -50,8 +50,11 @@ function Lantern({
         <div className="w-[36px] h-[6px] bg-[#2A1810] rounded-sm" />
         <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[14px] border-t-[#3D251E]" />
 
-        {/* Ambient light bleed behind lantern */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] bg-[#FDE08B] rounded-full mix-blend-screen opacity-50 blur-2xl pointer-events-none" />
+        {/* Lightweight ambient light glow (No GPU-heavy blur-2xl or mix-blend) */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] rounded-full pointer-events-none" 
+          style={{ background: 'radial-gradient(circle, rgba(253,224,139,0.35) 0%, transparent 70%)' }}
+        />
       </div>
     </motion.div>
   );

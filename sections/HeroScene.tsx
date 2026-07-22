@@ -205,7 +205,7 @@ export function HeroScene() {
       >
         {/* LEFT DOOR */}
         <motion.div
-          className="absolute top-0 left-0 bottom-0 w-[50.2%] overflow-hidden"
+          className="absolute top-0 left-0 bottom-0 w-[50.2%] overflow-hidden will-change-transform"
           style={{
             transformOrigin: 'left center',
             transformStyle: 'preserve-3d',
@@ -231,7 +231,7 @@ export function HeroScene() {
 
         {/* RIGHT DOOR */}
         <motion.div
-          className="absolute top-0 right-0 bottom-0 w-[50.2%] overflow-hidden"
+          className="absolute top-0 right-0 bottom-0 w-[50.2%] overflow-hidden will-change-transform"
           style={{
             transformOrigin: 'right center',
             transformStyle: 'preserve-3d',
@@ -285,8 +285,8 @@ export function HeroScene() {
           >
             {/* Golden glow over names on tap */}
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] pointer-events-none mix-blend-screen z-0"
-              style={{ background: 'radial-gradient(circle, #E8C96D 0%, transparent 70%)' }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] pointer-events-none z-0"
+              style={{ background: 'radial-gradient(circle, rgba(232,201,109,0.3) 0%, transparent 70%)' }}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ 
                 opacity: opened ? [0, 0.8, 0] : 0,
