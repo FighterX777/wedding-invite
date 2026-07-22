@@ -45,6 +45,25 @@ export function MusicPlayer() {
     }
   }, [musicEnabled, mounted]);
 
+  // Pause music when user leaves/minimizes tab or switches apps
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      if (document.hidden) {
+        audio.pause();
+      } else if (!document.hidden && musicEnabled) {
+        audio.play().catch(() => {});
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [musicEnabled]);
+
   if (!mounted) return null;
 
   return (

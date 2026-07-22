@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import { WEDDING } from '@/lib/constants';
 
 function Lantern({
@@ -30,7 +31,7 @@ function Lantern({
       />
 
       {/* Lantern */}
-      <div className="relative flex flex-col items-center shadow-md">
+      <div className="relative flex flex-col items-center">
         {/* Top hat */}
         <div className="w-0 h-0 border-l-[14px] border-l-transparent border-r-[14px] border-r-transparent border-b-[18px] border-b-[#3D251E]" />
         <div className="w-[36px] h-[6px] bg-[#2A1810] rounded-sm -mt-[2px]" />
@@ -50,7 +51,7 @@ function Lantern({
         <div className="w-[36px] h-[6px] bg-[#2A1810] rounded-sm" />
         <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[14px] border-t-[#3D251E]" />
 
-        {/* Lightweight ambient light glow (No GPU-heavy blur-2xl or mix-blend) */}
+        {/* Lightweight ambient light glow */}
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] rounded-full pointer-events-none" 
           style={{ background: 'radial-gradient(circle, rgba(253,224,139,0.35) 0%, transparent 70%)' }}
@@ -64,7 +65,7 @@ export function Landing() {
   return (
     <section
       id="landing"
-      className="relative min-h-screen flex flex-col items-center justify-center bg-[#FDFBF7] py-20 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-[#FDFBF7] py-16 overflow-hidden"
     >
       {/* Seamless background circle pattern */}
       <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none z-0">
@@ -162,6 +163,17 @@ export function Landing() {
             </div>
           </div>
         </div>
+      </motion.div>
+
+      {/* Animated Scroll Down Indicator */}
+      <motion.div
+        className="mt-6 flex flex-col items-center gap-1.5 text-[#C9A84C] pointer-events-none z-20"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: [0.4, 0.9, 0.4], y: [0, 6, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-sans font-medium">Scroll Down</span>
+        <ChevronDown size={16} />
       </motion.div>
     </section>
   );
