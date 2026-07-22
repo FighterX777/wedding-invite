@@ -328,7 +328,7 @@ export function HeroScene() {
                     textShadow: 'none',
                   }}
                 >
-                  P
+                  K
                 </span>
                 <span
                   className="font-serif text-[50px] md:text-[70px] leading-none pb-4"
@@ -353,7 +353,7 @@ export function HeroScene() {
                     textShadow: 'none',
                   }}
                 >
-                  A
+                  S
                 </span>
               </div>
             </motion.div>
