@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* ─── CSS Custom Properties ─────────────────────────────────── */
+:root {
+  --color-ivory: #FFFFF0;
+  --color-champagne: #F5E6C8;
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8C96D;
+  --color-maroon: #6B1B2A;
+  --color-maroon-deep: #4A0E1A;
+  --color-emerald: #1A4A3A;
+  --color-beige: #F2EDE4;
+  --color-matte-black: #1A1A1A;
+  --color-warm-white: #FDFAF5;
+  --color-cream: #F7F3EC;
+  --color-text-muted: #5a4a3a;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-warm-white);
+  color: var(--color-matte-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Typography ─────────────────────────────────────────────── */
+.font-serif {
+  font-family: var(--font-serif) !important;
+}
+
+.font-sans {
+  font-family: var(--font-sans) !important;
+}
+
+/* ─── Selection ──────────────────────────────────────────────── */
+::selection {
+  background: #C9A84C22;
+  color: #1A1A1A;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F3EC;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C66;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A84C;
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Gold shimmer keyframe ──────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #C9A84C 0%,
+    #E8C96D 30%,
+    #C9A84C 50%,
+    #E8C96D 80%,
+    #C9A84C 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Canvas ─────────────────────────────────────────────────── */
+canvas {
+  touch-action: none;
+}
