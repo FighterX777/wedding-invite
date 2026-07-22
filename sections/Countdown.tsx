@@ -14,30 +14,30 @@ function CountdownDigit({ value, label }: DigitProps) {
   const display = padTwo(value);
 
   return (
-    <div className="flex flex-col items-center gap-3">
-      <div className="relative w-20 h-24 md:w-28 md:h-32">
+    <div className="flex flex-col items-center gap-2 md:gap-3">
+      <div className="relative w-14 h-18 sm:w-18 sm:h-22 md:w-28 md:h-32">
         {/* Card background */}
-        <div className="absolute inset-0 bg-white rounded-2xl shadow-md border border-[#C9A84C]/10" />
+        <div className="absolute inset-0 bg-white rounded-xl md:rounded-2xl shadow-md border border-[#C9A84C]/10" />
 
         {/* Gold top strip */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl md:rounded-t-2xl bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent" />
 
         {/* Number */}
         <AnimatePresence mode="wait">
           <motion.div
             key={display}
-            className="absolute inset-0 flex items-center justify-center font-serif text-4xl md:text-5xl text-[#1A1A1A]"
-            initial={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, y: 12, filter: 'blur(4px)' }}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            className="absolute inset-0 flex items-center justify-center font-serif text-2xl sm:text-3xl md:text-5xl text-[#1A1A1A]"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
           >
             {display}
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <p className="font-sans text-[10px] tracking-[0.4em] uppercase text-[#C9A84C]">
+      <p className="font-sans text-[8px] sm:text-[10px] tracking-[0.2em] md:tracking-[0.4em] uppercase text-[#C9A84C]">
         {label}
       </p>
     </div>
@@ -50,7 +50,7 @@ export function Countdown() {
   return (
     <section
       id="countdown"
-      className="relative bg-[#1A1A1A] py-24 px-6 overflow-hidden"
+      className="relative bg-[#1A1A1A] py-20 md:py-24 px-3 sm:px-6 overflow-hidden"
     >
       {/* Background radial gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#2a1f0e_0%,_#1A1A1A_70%)] pointer-events-none" />
@@ -76,7 +76,7 @@ export function Countdown() {
 
       <div className="relative z-10 max-w-2xl mx-auto text-center">
         <motion.p
-          className="text-[#C9A84C] text-xs tracking-[0.5em] uppercase font-sans mb-4"
+          className="text-[#C9A84C] text-[10px] md:text-xs tracking-[0.4em] md:tracking-[0.5em] uppercase font-sans mb-3 md:mb-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -86,7 +86,7 @@ export function Countdown() {
         </motion.p>
 
         <motion.h2
-          className="font-serif text-white text-4xl md:text-5xl mb-3"
+          className="font-serif text-white text-3xl md:text-5xl mb-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -96,7 +96,7 @@ export function Countdown() {
         </motion.h2>
 
         <motion.p
-          className="font-sans text-white/40 text-sm mb-12"
+          className="font-sans text-white/50 text-xs md:text-sm mb-10 md:mb-12 px-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -106,7 +106,7 @@ export function Countdown() {
         </motion.p>
 
         <motion.div
-          className="flex items-start justify-center gap-4 md:gap-8"
+          className="flex items-start justify-center gap-1.5 sm:gap-3 md:gap-8 w-full"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -114,15 +114,15 @@ export function Countdown() {
         >
           <CountdownDigit value={days} label="Days" />
 
-          <div className="text-[#C9A84C] text-3xl font-serif mt-8 opacity-60">:</div>
+          <div className="text-[#C9A84C] text-lg sm:text-2xl md:text-3xl font-serif mt-5 md:mt-8 opacity-60">:</div>
 
           <CountdownDigit value={hours} label="Hours" />
 
-          <div className="text-[#C9A84C] text-3xl font-serif mt-8 opacity-60">:</div>
+          <div className="text-[#C9A84C] text-lg sm:text-2xl md:text-3xl font-serif mt-5 md:mt-8 opacity-60">:</div>
 
           <CountdownDigit value={minutes} label="Min" />
 
-          <div className="text-[#C9A84C] text-3xl font-serif mt-8 opacity-60">:</div>
+          <div className="text-[#C9A84C] text-lg sm:text-2xl md:text-3xl font-serif mt-5 md:mt-8 opacity-60">:</div>
 
           <CountdownDigit value={seconds} label="Sec" />
         </motion.div>

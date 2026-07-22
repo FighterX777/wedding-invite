@@ -60,49 +60,6 @@ function Lantern({
   );
 }
 
-function FloatingDots() {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-      {/* 12 subtle floating dots */}
-      {[...Array(12)].map((_, i) => {
-        const rand1 = (i * 137) % 100;
-        const rand2 = (i * 251) % 100;
-        const rand3 = (i * 389) % 100;
-        
-        const size = 3 + (rand1 % 5); // 3px to 7px dots
-        const left = 4 + (rand2 % 92); // 4% to 96%
-        const delay = (rand3 % 60) / 10;
-        const duration = 16 + (rand1 % 14);
-        
-        return (
-          <motion.div
-            key={`dot-${i}`}
-            className="absolute rounded-full bg-[#C9A84C] will-change-transform"
-            style={{
-              width: size,
-              height: size,
-              left: `${left}%`,
-              top: `${10 + (rand1 % 80)}%`,
-              opacity: 0,
-            }}
-            animate={{
-              y: [0, -25, 0],
-              opacity: [0, 0.35, 0],
-              scale: [1, 1.15, 1],
-            }}
-            transition={{
-              duration: duration,
-              delay: delay,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-}
-
 export function Landing() {
   return (
     <section
@@ -126,10 +83,6 @@ export function Landing() {
         </defs>
         <rect width="100%" height="100%" fill="url(#bg-pattern-landing)" />
       </svg>
-
-      <div className="hidden md:block">
-        <FloatingDots />
-      </div>
 
       {/* LANTERNS */}
       <Lantern className="left-[1%] md:left-[12%] -top-[20px]" stringLength={180} delay={0} size={1.0} />
