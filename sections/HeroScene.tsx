@@ -9,24 +9,24 @@ function FloatingPetals() {
   const petals = ['🌸', '🌺', '✿', '❀', '🌼'];
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
-      {[...Array(14)].map((_, i) => (
+      {[...Array(8)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute text-lg select-none"
+          className="absolute text-base md:text-lg select-none will-change-transform"
           style={{
-            left: `${5 + i * 7}%`,
+            left: `${8 + i * 11}%`,
             top: `-5%`,
             opacity: 0,
           }}
           animate={{
             y: ['0vh', '110vh'],
-            x: [0, Math.sin(i) * 60],
+            x: [0, Math.sin(i) * 40],
             rotate: [0, 360 * (i % 2 === 0 ? 1 : -1)],
             opacity: [0, 0.6, 0.6, 0],
           }}
           transition={{
-            duration: 6 + i * 0.8,
-            delay: i * 0.5,
+            duration: 7 + i * 1,
+            delay: i * 0.6,
             repeat: Infinity,
             ease: 'linear',
           }}

@@ -60,32 +60,32 @@ function Lantern({
 function FloatingDots() {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-      {/* 20 subtle floating dots */}
-      {[...Array(20)].map((_, i) => {
+      {/* 12 subtle floating dots */}
+      {[...Array(12)].map((_, i) => {
         const rand1 = (i * 137) % 100;
         const rand2 = (i * 251) % 100;
         const rand3 = (i * 389) % 100;
         
-        const size = 3 + (rand1 % 6); // 3px to 8px dots
-        const left = 2 + (rand2 % 96); // 2% to 98%
+        const size = 3 + (rand1 % 5); // 3px to 7px dots
+        const left = 4 + (rand2 % 92); // 4% to 96%
         const delay = (rand3 % 60) / 10;
-        const duration = 15 + (rand1 % 15); // very slow 15s-30s
+        const duration = 16 + (rand1 % 14);
         
         return (
           <motion.div
             key={`dot-${i}`}
-            className="absolute rounded-full bg-[#C9A84C]"
+            className="absolute rounded-full bg-[#C9A84C] will-change-transform"
             style={{
               width: size,
               height: size,
               left: `${left}%`,
-              top: `${10 + (rand1 % 80)}%`, // Spread vertically
+              top: `${10 + (rand1 % 80)}%`,
               opacity: 0,
             }}
             animate={{
-              y: [0, -30, 0],
-              opacity: [0, 0.4, 0],
-              scale: [1, 1.2, 1],
+              y: [0, -25, 0],
+              opacity: [0, 0.35, 0],
+              scale: [1, 1.15, 1],
             }}
             transition={{
               duration: duration,

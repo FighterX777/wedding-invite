@@ -13,6 +13,10 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    // Disable Lenis on mobile/touch devices for native 60fps smooth momentum scrolling
+    const isMobile = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
+    if (isMobile) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
