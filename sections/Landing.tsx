@@ -65,7 +65,7 @@ export function Landing() {
   return (
     <section
       id="landing"
-      className="relative min-h-screen flex flex-col items-center justify-center bg-[#FDFBF7] py-16 overflow-hidden"
+      className="relative flex flex-col items-center justify-center bg-[#FDFBF7] pt-10 pb-6 md:pt-16 md:pb-10 overflow-hidden"
     >
       {/* Seamless background circle pattern */}
       <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none z-0">
@@ -93,7 +93,7 @@ export function Landing() {
 
       {/* MAIN ARCH CARD */}
       <motion.div
-        className="relative z-20 w-[90vw] max-w-[500px] bg-[#5C0E22] rounded-t-[300px] rounded-b-2xl shadow-2xl flex flex-col items-center pb-10 pt-6 mt-2 md:mt-4"
+        className="relative z-20 w-[92vw] max-w-[500px] bg-[#5C0E22] rounded-t-[300px] rounded-b-3xl shadow-2xl flex flex-col items-center pb-14 pt-8 mt-2 md:mt-4"
         style={{
           boxShadow: '0 20px 50px rgba(0,0,0,0.3), inset 0 2px 10px rgba(255,255,255,0.1)',
         }}
@@ -103,10 +103,10 @@ export function Landing() {
         transition={{ duration: 1, ease: 'easeOut' }}
       >
         {/* Inner Gold Border */}
-        <div className="absolute inset-[10px] md:inset-[14px] border border-[#C9A84C]/30 rounded-t-[290px] rounded-b-xl pointer-events-none" />
+        <div className="absolute inset-[10px] md:inset-[14px] border border-[#C9A84C]/30 rounded-t-[290px] rounded-b-2xl pointer-events-none" />
 
         {/* Ganesha Logo */}
-        <div className="relative w-36 h-36 md:w-44 md:h-44 mx-auto mt-4 mb-4 flex items-center justify-center shrink-0 bg-white rounded-full p-2 md:p-3 shadow-[0_0_20px_rgba(253,224,139,0.4)] border-2 border-[#E8C96D]">
+        <div className="relative w-36 h-36 md:w-44 md:h-44 mx-auto mt-4 mb-5 flex items-center justify-center shrink-0 bg-white rounded-full p-2 md:p-3 shadow-[0_0_20px_rgba(253,224,139,0.4)] border-2 border-[#E8C96D]">
           <img 
             src="/assets/images/ganesha.png" 
             alt="Shree Ganeshay Namah" 
@@ -115,8 +115,8 @@ export function Landing() {
         </div>
 
         {/* Text Content */}
-        <div className="text-center px-8 relative z-10 w-full">
-          <p className="font-serif italic text-sm md:text-base text-[#E8C96D] mb-3 opacity-90">
+        <div className="text-center px-6 md:px-8 relative z-10 w-full">
+          <p className="font-serif italic text-base md:text-lg text-[#E8C96D] mb-4 opacity-95">
             Together with their families
           </p>
 
@@ -127,7 +127,7 @@ export function Landing() {
             {WEDDING.bride.name}
           </h1>
 
-          <p className="font-serif italic text-4xl md:text-5xl text-[#C9A84C] my-1 opacity-80">
+          <p className="font-serif italic text-4xl md:text-5xl text-[#C9A84C] my-2 opacity-90">
             &amp;
           </p>
 
@@ -138,28 +138,28 @@ export function Landing() {
             {WEDDING.groom.name}
           </h1>
 
-          <p className="font-serif italic text-xs md:text-sm text-[#E8C96D] mt-4 opacity-80 tracking-wide max-w-[260px] mx-auto leading-relaxed">
+          <p className="font-serif italic text-sm md:text-base text-[#E8C96D] mt-5 opacity-90 tracking-wide max-w-[300px] mx-auto leading-relaxed">
             cordially invite you to join the celebration of their union
           </p>
 
           {/* Date Section */}
-          <div className="flex items-center justify-center gap-4 mt-8 w-full px-2">
+          <div className="flex items-center justify-center gap-3 md:gap-4 mt-8 w-full px-2">
             <div className="flex flex-col items-center flex-1">
-              <span className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#E8C96D] mb-2 opacity-90">
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#E8C96D] mb-2 opacity-95 font-semibold">
                 Saturday
               </span>
-              <div className="w-full max-w-[80px] h-[1px] bg-[#C9A84C]/40" />
+              <div className="w-full max-w-[90px] h-[1px] bg-[#C9A84C]/50" />
             </div>
 
-            <div className="text-5xl md:text-6xl font-serif text-[#E8C96D] mx-2" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
+            <div className="text-6xl md:text-7xl font-serif text-[#E8C96D] mx-2" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
               05
             </div>
 
             <div className="flex flex-col items-center flex-1">
-              <span className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#E8C96D] mb-2 opacity-90">
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#E8C96D] mb-2 opacity-95 font-semibold">
                 December 2026
               </span>
-              <div className="w-full max-w-[80px] h-[1px] bg-[#C9A84C]/40" />
+              <div className="w-full max-w-[90px] h-[1px] bg-[#C9A84C]/50" />
             </div>
           </div>
         </div>
@@ -167,13 +167,13 @@ export function Landing() {
 
       {/* Animated Scroll Down Indicator */}
       <motion.div
-        className="mt-6 flex flex-col items-center gap-1.5 text-[#C9A84C] pointer-events-none z-20"
+        className="mt-5 flex flex-col items-center gap-1 text-[#C9A84C] pointer-events-none z-20"
         initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: [0.4, 0.9, 0.4], y: [0, 6, 0] }}
+        animate={{ opacity: [0.5, 1, 0.5], y: [0, 5, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-sans font-medium">Scroll Down</span>
-        <ChevronDown size={16} />
+        <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-sans font-semibold">Scroll Down</span>
+        <ChevronDown size={18} />
       </motion.div>
     </section>
   );

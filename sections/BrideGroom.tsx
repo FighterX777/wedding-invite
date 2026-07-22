@@ -13,7 +13,7 @@ function PersonCard({ person, side }: { person: typeof WEDDING.bride; side: 'bri
 
   return (
     <motion.div 
-      className="flex flex-col items-center max-w-[280px] md:max-w-[320px] w-full"
+      className="flex flex-col items-center max-w-[320px] md:max-w-[360px] w-full"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -41,7 +41,7 @@ function PersonCard({ person, side }: { person: typeof WEDDING.bride; side: 'bri
       </p>
 
       {/* Description */}
-      <p className="text-center font-serif text-[11px] md:text-[13px] text-[#8B6914] opacity-80 leading-[1.8] max-w-[250px]">
+      <p className="text-center font-serif text-sm md:text-base text-[#5C0E22] opacity-90 leading-relaxed max-w-[320px] md:max-w-[360px]">
         {person.description}
       </p>
     </motion.div>
@@ -50,7 +50,7 @@ function PersonCard({ person, side }: { person: typeof WEDDING.bride; side: 'bri
 
 export function BrideGroom() {
   return (
-    <section id="couple" className="relative bg-[#FDFBF7] py-24 px-6 overflow-hidden min-h-screen flex items-center">
+    <section id="couple" className="relative bg-[#FDFBF7] pt-10 pb-16 md:pt-16 md:pb-24 px-6 overflow-hidden flex items-center">
       {/* Seamless background circle pattern */}
       <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none z-0">
         <defs>
@@ -74,7 +74,7 @@ export function BrideGroom() {
         
         {/* Title Area */}
         <motion.p 
-          className="text-[#C9A84C] text-[9px] md:text-[11px] tracking-[0.4em] uppercase font-sans mb-4 font-semibold"
+          className="text-[#C9A84C] text-xs md:text-sm tracking-[0.4em] uppercase font-sans mb-3 font-semibold"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -84,7 +84,7 @@ export function BrideGroom() {
         </motion.p>
         
         <motion.h2 
-          className="font-serif text-4xl md:text-[52px] text-[#5C0E22] uppercase tracking-[0.1em] md:tracking-[0.15em] mb-6 text-center"
+          className="font-serif text-4xl md:text-[52px] text-[#5C0E22] uppercase tracking-[0.1em] md:tracking-[0.15em] mb-4 text-center"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -95,7 +95,7 @@ export function BrideGroom() {
         
         {/* Divider line */}
         <motion.div 
-          className="flex items-center justify-center gap-3 mb-16 md:mb-24 w-full"
+          className="flex items-center justify-center gap-3 mb-10 md:mb-16 w-full"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}

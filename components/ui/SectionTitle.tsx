@@ -28,7 +28,7 @@ export function SectionTitle({
       transition={{ duration: 0.7, ease: 'easeOut' }}
     >
       {eyebrow && (
-        <p className="text-[#C9A84C] text-xs tracking-[0.4em] uppercase font-sans mb-4">
+        <p className="text-[#C9A84C] text-xs md:text-sm tracking-[0.4em] uppercase font-sans font-semibold mb-3">
           {eyebrow}
         </p>
       )}

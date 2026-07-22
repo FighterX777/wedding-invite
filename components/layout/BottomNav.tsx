@@ -16,9 +16,7 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { id: 'home', label: 'Home', icon: Home, href: '#home' },
-  { id: 'story', label: 'Story', icon: BookOpen, href: '#story' },
   { id: 'events', label: 'Events', icon: Calendar, href: '#events' },
-  { id: 'gallery', label: 'Gallery', icon: ImageIcon, href: '#gallery' },
   { id: 'family', label: 'Family', icon: Users, href: '#family' },
   { id: 'rsvp', label: 'RSVP', icon: Heart, href: '#rsvp' },
 ];

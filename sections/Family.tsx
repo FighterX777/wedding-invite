@@ -28,8 +28,8 @@ function FamilyCard({ member, index, accentColor }: { member: FamilyMember; inde
         {member.name[0]}
       </div>
 
-      <h4 className="font-serif text-lg text-[#1A1A1A] leading-tight mb-1">{member.name}</h4>
-      <p className="font-sans text-[#C9A84C] text-[11px] tracking-wider uppercase mb-1">
+      <h4 className="font-serif text-xl text-[#1A1A1A] leading-tight mb-1">{member.name}</h4>
+      <p className="font-sans text-[#C9A84C] text-xs md:text-sm tracking-wider uppercase mb-1">
         {member.relation}
       </p>
     </motion.div>
@@ -75,7 +75,7 @@ function FamilyColumn({
 
 export function Family() {
   return (
-    <section id="family" className="bg-[#F7F3EC] py-24 px-6">
+    <section id="family" className="bg-[#F7F3EC] py-16 md:py-24 px-6">
       <div className="max-w-2xl mx-auto">
         <SectionTitle
           eyebrow="With Blessings"

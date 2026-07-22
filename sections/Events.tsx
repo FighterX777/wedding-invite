@@ -47,7 +47,7 @@ function EventCard({ event, index, isDesktopLeft }: { event: (typeof EVENTS)[num
       {/* Content */}
       <div className={`relative z-10 ${isDesktopLeft ? 'md:mr-16 ml-16 md:ml-0' : 'ml-16'}`}>
         {/* Header */}
-        <p className="text-[8px] md:text-[9px] tracking-[0.2em] text-[#C9A84C] uppercase mb-2 font-sans font-semibold">
+        <p className="text-xs md:text-sm tracking-[0.2em] text-[#C9A84C] uppercase mb-2 font-sans font-semibold">
           {event.date}
         </p>
         <h3 className="text-xl md:text-2xl font-serif uppercase tracking-[0.15em] text-[#5C0E22] mb-3">
@@ -55,22 +55,22 @@ function EventCard({ event, index, isDesktopLeft }: { event: (typeof EVENTS)[num
         </h3>
 
         {/* Description */}
-        <p className="text-[10px] md:text-xs font-sans text-[#3D251E]/70 tracking-wide leading-relaxed mb-5">
+        <p className="text-xs md:text-sm font-sans text-[#3D251E]/80 tracking-wide leading-relaxed mb-5">
           {event.description}
         </p>
 
         {/* Details List */}
         <div className={`space-y-2 mb-6 ${isDesktopLeft ? 'md:flex md:flex-col md:items-end' : ''}`}>
-          <div className={`flex items-center gap-2 text-[10px] md:text-xs text-[#5a4a3a] ${isDesktopLeft ? 'md:flex-row-reverse' : ''}`}>
-            <Clock size={12} className="text-[#C9A84C] flex-shrink-0" />
+          <div className={`flex items-center gap-2 text-xs md:text-sm text-[#5a4a3a] ${isDesktopLeft ? 'md:flex-row-reverse' : ''}`}>
+            <Clock size={14} className="text-[#C9A84C] flex-shrink-0" />
             <span className="font-sans">{event.time}</span>
           </div>
-          <div className={`flex items-start gap-2 text-[10px] md:text-xs text-[#5a4a3a] ${isDesktopLeft ? 'md:flex-row-reverse md:text-right' : ''}`}>
-            <MapPin size={12} className="text-[#C9A84C] flex-shrink-0 mt-0.5" />
+          <div className={`flex items-start gap-2 text-xs md:text-sm text-[#5a4a3a] ${isDesktopLeft ? 'md:flex-row-reverse md:text-right' : ''}`}>
+            <MapPin size={14} className="text-[#C9A84C] flex-shrink-0 mt-0.5" />
             <span className="font-sans">{event.venue}</span>
           </div>
-          <div className={`flex items-center gap-2 text-[10px] md:text-xs text-[#5a4a3a] ${isDesktopLeft ? 'md:flex-row-reverse' : ''}`}>
-            <Shirt size={12} className="text-[#C9A84C] flex-shrink-0" />
+          <div className={`flex items-center gap-2 text-xs md:text-sm text-[#5a4a3a] ${isDesktopLeft ? 'md:flex-row-reverse' : ''}`}>
+            <Shirt size={14} className="text-[#C9A84C] flex-shrink-0" />
             <span className="font-sans">{event.dressCode}</span>
           </div>
         </div>
@@ -78,9 +78,9 @@ function EventCard({ event, index, isDesktopLeft }: { event: (typeof EVENTS)[num
         {/* Action button */}
         <button
           onClick={handleCalendar}
-          className={`flex items-center gap-2 py-2 px-4 rounded-lg border border-[#C9A84C]/40 text-[#5C0E22] font-sans text-[9px] tracking-wider uppercase hover:bg-[#C9A84C]/10 transition-colors duration-200 ${isDesktopLeft ? 'md:ml-auto' : ''}`}
+          className={`flex items-center gap-2 py-2 px-4 rounded-lg border border-[#C9A84C]/40 text-[#5C0E22] font-sans text-xs tracking-wider uppercase hover:bg-[#C9A84C]/10 transition-colors duration-200 ${isDesktopLeft ? 'md:ml-auto' : ''}`}
         >
-          <Calendar size={12} className="text-[#C9A84C]" />
+          <Calendar size={13} className="text-[#C9A84C]" />
           Add to Calendar
         </button>
       </div>
@@ -90,7 +90,7 @@ function EventCard({ event, index, isDesktopLeft }: { event: (typeof EVENTS)[num
 
 export function Events() {
   return (
-    <section id="events" className="relative bg-[#FDFBF7] py-24 px-4 overflow-hidden">
+    <section id="events" className="relative bg-[#FDFBF7] py-16 md:py-24 px-4 overflow-hidden">
       {/* Background circle pattern */}
       <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none z-0">
         <defs>
@@ -130,14 +130,14 @@ export function Events() {
         </div>
 
         {/* Timeline Layout */}
-        <div className="relative py-10">
+        <div className="relative py-6 md:py-10">
           {/* Center/Left Vertical Line (Animated) */}
           <motion.div 
-            className="absolute left-[16px] md:left-[50%] top-0 bottom-0 w-[1px] bg-[#C9A84C]/40 md:-translate-x-1/2 origin-top"
+            className="absolute left-[14px] md:left-[50%] top-0 bottom-0 w-[2px] bg-[#C9A84C] md:-translate-x-1/2 origin-top z-10"
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            viewport={{ once: true }}
           />
 
           <div className="space-y-12 md:space-y-24">
@@ -152,20 +152,20 @@ export function Events() {
                   </div>
 
                   {/* Dot (Animated) */}
-                  <div className="absolute left-[16px] md:left-[50%] top-1/2 -translate-y-1/2 flex items-center justify-center -translate-x-1/2 z-20">
+                  <div className="absolute left-[14px] md:left-[50%] top-6 md:top-1/2 -translate-y-1/2 flex items-center justify-center -translate-x-1/2 z-20">
                     <motion.div 
-                      className="w-[18px] h-[18px] rounded-full border-[1.5px] border-[#C9A84C] bg-[#FDFBF7] flex items-center justify-center shadow-[0_0_10px_rgba(201,168,76,0.3)]"
+                      className="w-[18px] h-[18px] rounded-full border-2 border-[#C9A84C] bg-[#FFFDF5] flex items-center justify-center shadow-[0_0_10px_rgba(201,168,76,0.5)]"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
-                      viewport={{ once: true, margin: '-50px' }}
-                      transition={{ type: 'spring', delay: 0.4 + i * 0.1 }}
+                      viewport={{ once: true }}
+                      transition={{ type: 'spring', delay: 0.2 + i * 0.1 }}
                     >
-                      <div className="w-2 h-2 rounded-full bg-[#C9A84C]" />
+                      <div className="w-2 h-2 rounded-full bg-[#5C0E22]" />
                     </motion.div>
                   </div>
 
                   {/* Desktop Right Side + Mobile All Cards */}
-                  <div className={`w-full pl-10 md:w-1/2 md:pl-12 flex justify-start ${!isDesktopLeft ? 'md:flex' : 'md:hidden'}`}>
+                  <div className={`w-full pl-8 md:w-1/2 md:pl-12 flex justify-start ${!isDesktopLeft ? 'md:flex' : 'md:hidden'}`}>
                     <EventCard event={event} index={i} isDesktopLeft={false} />
                   </div>
                 </div>

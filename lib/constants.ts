@@ -101,7 +101,9 @@ export const EVENTS = [
 
 
 export const BRIDE_FAMILY = [
-  { name: 'S.K. Gupta', relation: "Bride's Father", role: 'Senior Architect' },
+  { name: 'Maneshwar Das Gupta', relation: "Bride's Grandfather", role: 'Senior Architect' },
+  { name: 'Saroj Bala Gupta', relation: "Bride's Grandmother", role: 'Senior Architect' },
+  { name: 'Sanju Kumar Gupta', relation: "Bride's Father", role: 'Senior Architect' },
   { name: 'Deepa Gupta', relation: "Bride's Mother", role: 'Educator' },
   { name: 'Amol Gupta', relation: "Bride's Brother", role: 'Software Engineer' },
 ];
@@ -109,7 +111,7 @@ export const BRIDE_FAMILY = [
 export const GROOM_FAMILY = [
   { name: 'Pramod Kumar Singhal', relation: "Groom's Father", role: 'Business Magnate' },
   { name: 'Poonam Singhal', relation: "Groom's Mother", role: 'Philanthropist' },
-  { name: 'Ananya Singhal', relation: "Groom's Sister", role: 'Pediatric Doctor' },
+  { name: 'Vasudha Singhal', relation: "Groom's Sister", role: 'Pediatric Doctor' },
 ];
 
 export const GALLERY_ITEMS = [
