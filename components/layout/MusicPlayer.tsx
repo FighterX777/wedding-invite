@@ -52,7 +52,7 @@ export function MusicPlayer() {
       <audio id="wedding-bg-music" ref={audioRef} src="/assets/audio/ReelAudio-73181.mp3" loop preload="auto" />
       <motion.button
         onClick={() => setMusicEnabled(!musicEnabled)}
-        className="fixed top-5 right-5 z-50 w-11 h-11 rounded-full bg-white/80 backdrop-blur-xl border border-white/60 shadow-lg flex items-center justify-center text-[#5a4a3a] hover:text-[#C9A84C] hover:border-[#C9A84C]/30 transition-colors duration-300"
+        className="fixed top-5 right-5 z-50 w-11 h-11 rounded-full bg-[#FDFBF7] border border-[#C9A84C]/40 shadow-lg flex items-center justify-center text-[#5a4a3a] hover:text-[#C9A84C] hover:border-[#C9A84C]/30 transition-colors duration-300"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 2.5, type: 'spring' }}

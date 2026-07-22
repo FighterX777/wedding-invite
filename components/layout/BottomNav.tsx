@@ -61,7 +61,7 @@ export function BottomNav() {
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         >
-          <div className="flex items-center gap-1 px-4 py-3 rounded-full bg-white/80 backdrop-blur-xl border border-white/60 shadow-xl shadow-black/10">
+          <div className="flex items-center gap-1 px-4 py-3 rounded-full bg-[#FDFBF7] border border-[#C9A84C]/40 shadow-xl shadow-black/10">
             {navItems.map(({ id, label, icon: Icon, href }) => {
               const isActive = activeSection === id;
               return (

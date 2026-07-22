@@ -9,16 +9,30 @@ export function useScrollDirection(): ScrollDirection {
   const lastY = useRef(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const y = window.scrollY;
-      if (y > lastY.current + 5) setDirection('down');
-      else if (y < lastY.current - 5) setDirection('up');
-      lastY.current = y;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.scrollY;
+          const delta = y - lastY.current;
+          if (Math.abs(delta) > 15) {
+            if (delta > 0 && direction !== 'down') {
+              setDirection('down');
+            } else if (delta < 0 && direction !== 'up') {
+              setDirection('up');
+            }
+            lastY.current = y;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [direction]);
 
   return direction;
 }

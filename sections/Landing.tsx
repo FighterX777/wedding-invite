@@ -124,7 +124,9 @@ export function Landing() {
         <rect width="100%" height="100%" fill="url(#bg-pattern-landing)" />
       </svg>
 
-      <FloatingDots />
+      <div className="hidden md:block">
+        <FloatingDots />
+      </div>
 
       {/* LANTERNS */}
       <Lantern className="left-[1%] md:left-[12%] -top-[20px]" stringLength={180} delay={0} size={1.0} />
