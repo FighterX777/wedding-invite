@@ -1,16 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Droplet, Leaf, Music, Heart, Sparkles, MapPin, Clock, Calendar, Shirt } from 'lucide-react';
+import { Music, Utensils, Heart, Sparkles, MapPin, Clock, Calendar, Shirt } from 'lucide-react';
 import { EVENTS } from '@/lib/constants';
 import { downloadICS, generateICS } from '@/lib/calendar';
 
 const getEventIcon = (id: string) => {
   switch (id) {
-    case 'haldi': return <Droplet size={14} className="text-[#E8C96D] fill-[#E8C96D]" />;
-    case 'mehendi': return <Leaf size={14} className="text-[#E8C96D] fill-[#E8C96D]" />;
-    case 'sangeet': return <Music size={14} className="text-[#E8C96D] fill-[#E8C96D]" />;
-    case 'wedding': return <Heart size={14} className="text-[#E8C96D] fill-[#E8C96D]" />;
+    case 'baraat': return <Music size={14} className="text-[#E8C96D] fill-[#E8C96D]" />;
+    case 'dinner': return <Utensils size={14} className="text-[#E8C96D]" />;
+    case 'doli': return <Heart size={14} className="text-[#E8C96D] fill-[#E8C96D]" />;
     default: return <Sparkles size={14} className="text-[#E8C96D] fill-[#E8C96D]" />;
   }
 };
@@ -21,8 +20,8 @@ function EventCard({ event, index, isDesktopLeft }: { event: (typeof EVENTS)[num
       title: `${event.name} — Komal & Sabhye Wedding`,
       description: event.description,
       location: event.venue,
-      startDate: '20261204T100000', // Mock start date for now
-      endDate: '20261204T130000',
+      startDate: event.start,
+      endDate: event.end,
     });
     downloadICS(ics, event.name);
   };
