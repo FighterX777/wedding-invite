@@ -6,7 +6,7 @@
 export const WEDDING = {
   bride: {
     name: 'Komal',
-    fullName: 'Komal Gupta',
+    fullName: 'Komal',
     parents: 'Mr. & Mrs. Gupta',
     occupation: 'Architect & Design Lead',
     description:
@@ -14,7 +14,7 @@ export const WEDDING = {
   },
   groom: {
     name: 'Sabhye',
-    fullName: 'Sabhye Singhal',
+    fullName: 'Sabhye',
     parents: 'Mr. & Mrs. Singhal',
     occupation: 'Entrepreneur & Venture Capitalist',
     description:

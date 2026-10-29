@@ -5,43 +5,45 @@ import { WEDDING } from '@/lib/constants';
 
 function PersonCard({ person, side }: { person: typeof WEDDING.bride; side: 'bride' | 'groom' }) {
   const isBride = side === 'bride';
-  
-  // Using beautiful high-quality placeholders for the couple
-  const imgUrl = isBride 
-    ? 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80' 
-    : 'https://images.unsplash.com/photo-1610036127112-259a4c8a2b53?w=800&q=80';
 
   return (
     <motion.div 
-      className="flex flex-col items-center max-w-[320px] md:max-w-[360px] w-full"
+      className="flex w-full max-w-[320px] flex-col items-center md:max-w-[360px]"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      {/* Arched Photo Frame */}
-      <div className="p-[6px] border border-[#C9A84C]/40 rounded-t-[200px] rounded-b-2xl shadow-2xl shadow-[#C9A84C]/10 bg-[#FDFBF7] mb-8">
-        <div className="w-[240px] md:w-[280px] aspect-[4/5] rounded-t-[190px] rounded-b-xl overflow-hidden border-[6px] border-white relative shadow-inner bg-[#5C0E22]/5">
-          <img 
-            src={imgUrl} 
-            alt={person.name} 
-            className="absolute inset-0 w-full h-full object-cover object-top" 
-          />
-        </div>
+      {/* Decorative monogram medallion in place of a portrait */}
+      <div
+        aria-hidden="true"
+        className="relative mb-5 flex h-24 w-24 items-center justify-center rounded-full border border-[#C9A84C]/55 bg-[radial-gradient(circle_at_35%_30%,#fffdf6_0%,#f4e8ce_58%,#e5d1a9_100%)] shadow-[0_8px_24px_rgba(92,14,34,0.1)] sm:mb-6 sm:h-28 sm:w-28"
+      >
+        <div className="absolute inset-[6px] rounded-full border border-[#C9A84C]/45" />
+        <span className="font-serif text-4xl text-[#5C0E22] sm:text-5xl">
+          {person.name.charAt(0)}
+        </span>
+        <span className="absolute bottom-5 text-[8px] uppercase tracking-[0.3em] text-[#A77B2B]">
+          {isBride ? 'Bride' : 'Groom'}
+        </span>
+      </div>
+
+      <div className="mb-4 h-px w-12 bg-gradient-to-r from-transparent via-[#C9A84C]/70 to-transparent">
+        <span className="sr-only">Couple member</span>
       </div>
 
       {/* Name */}
-      <h3 className="font-serif text-2xl md:text-[28px] text-[#5C0E22] uppercase tracking-[0.15em] mb-1 text-center">
+      <h3 className="mb-1 text-center font-serif text-2xl uppercase tracking-[0.12em] text-[#5C0E22] sm:text-[28px] sm:tracking-[0.15em]">
         {person.fullName}
       </h3>
-      
+
       {/* Title */}
-      <p className="font-serif italic text-2xl md:text-3xl text-[#C9A84C] mb-5" style={{ fontFamily: 'var(--font-cursive)' }}>
+      <p className="mb-4 font-serif text-2xl italic text-[#C9A84C] sm:mb-5 sm:text-3xl" style={{ fontFamily: 'var(--font-cursive)' }}>
         {isBride ? 'The Bride' : 'The Groom'}
       </p>
 
       {/* Description */}
-      <p className="text-center font-serif text-sm md:text-base text-[#5C0E22] opacity-90 leading-relaxed max-w-[320px] md:max-w-[360px]">
+      <p className="max-w-[320px] text-center font-serif text-sm leading-relaxed text-[#5C0E22] opacity-90 sm:text-base md:max-w-[360px]">
         {person.description}
       </p>
     </motion.div>
@@ -109,12 +111,12 @@ export function BrideGroom() {
         </motion.div>
 
         {/* Couple Grid */}
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-12 md:gap-16 lg:gap-24 w-full">
+        <div className="flex w-full flex-col items-center justify-center gap-9 md:flex-row md:items-start md:gap-12 lg:gap-20">
            <PersonCard person={WEDDING.bride} side="bride" />
            
            {/* Center Gold Heart */}
            <motion.div 
-             className="text-[#C9A84C] text-3xl md:text-5xl drop-shadow-md flex items-center justify-center md:mt-[180px]"
+             className="flex items-center justify-center text-3xl text-[#C9A84C] drop-shadow-md md:mt-8 md:text-5xl"
              initial={{ opacity: 0, scale: 0 }}
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
