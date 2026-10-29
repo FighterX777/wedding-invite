@@ -2,8 +2,8 @@
 
 # dependencies
 /node_modules
-/.pnp
 .pnp.*
+/.pnp
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/playwright-report/
+/test-results/
 
 # next.js
 /.next/
@@ -19,10 +21,20 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.pem
+
+# local tooling and caches
+.eslintcache
+.npm/
+.turbo/
+.cache/
+.idea/
 
 # debug
 npm-debug.log*
@@ -32,6 +44,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+!.env.*.example
 
 # vercel
 .vercel

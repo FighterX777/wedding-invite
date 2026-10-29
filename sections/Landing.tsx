@@ -65,37 +65,60 @@ export function Landing() {
   return (
     <section
       id="landing"
-      className="relative flex flex-col items-center justify-center bg-[#FDFBF7] pt-10 pb-6 md:pt-16 md:pb-10 overflow-hidden"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-[#F4EBDD] px-4 pb-10 pt-16 sm:px-6 md:py-16"
     >
-      {/* Seamless background circle pattern */}
-      <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none z-0">
+      {/* Warm, layered light gives the invitation a more atmospheric backdrop. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            'radial-gradient(ellipse at 50% 44%, rgba(255,255,255,0.98) 0%, rgba(255,250,239,0.88) 27%, transparent 62%), radial-gradient(ellipse at 8% 82%, rgba(201,168,76,0.2) 0%, transparent 38%), radial-gradient(ellipse at 94% 20%, rgba(92,14,34,0.11) 0%, transparent 36%), linear-gradient(135deg, #f8f1e5 0%, #eee1cd 50%, #f7efe2 100%)',
+        }}
+      />
+
+      {/* Fine Mughal-inspired jaali pattern instead of generic repeating circles. */}
+      <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-60">
         <defs>
           <pattern
             id="bg-pattern-landing"
             x="0"
             y="0"
-            width="40"
-            height="40"
+            width="112"
+            height="112"
             patternUnits="userSpaceOnUse"
           >
-            <circle cx="20" cy="20" r="14" fill="none" stroke="#C9A84C" strokeWidth="0.5" opacity="0.3" />
-            <circle cx="20" cy="20" r="1.5" fill="#C9A84C" opacity="0.3" />
+            <path d="M56 4 108 56 56 108 4 56Z" fill="none" stroke="#A77B2B" strokeWidth="0.7" strokeOpacity="0.2" />
+            <path d="M56 20 92 56 56 92 20 56Z" fill="none" stroke="#6B1B2A" strokeWidth="0.65" strokeOpacity="0.14" />
+            <path d="M56 20 C61 36 76 51 92 56 C76 61 61 76 56 92 C51 76 36 61 20 56 C36 51 51 36 56 20Z" fill="none" stroke="#A77B2B" strokeWidth="0.65" strokeOpacity="0.18" />
+            <circle cx="56" cy="56" r="5" fill="none" stroke="#A77B2B" strokeWidth="0.8" strokeOpacity="0.24" />
+            <circle cx="56" cy="56" r="1.5" fill="#A77B2B" fillOpacity="0.3" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#bg-pattern-landing)" />
       </svg>
 
+      {/* Soft vignette frames the card and adds depth on wide displays. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            'linear-gradient(90deg, rgba(74,14,26,0.055), transparent 22%, transparent 78%, rgba(74,14,26,0.055)), linear-gradient(0deg, rgba(74,14,26,0.06), transparent 24%, transparent 78%, rgba(255,255,255,0.22))',
+        }}
+      />
+
       {/* LANTERNS */}
-      <Lantern className="left-[1%] md:left-[12%] -top-[20px]" stringLength={180} delay={0} size={1.0} />
-      <Lantern className="left-[12%] md:left-[26%] -top-[20px]" stringLength={320} delay={1.5} size={0.8} />
-      <Lantern className="right-[12%] md:right-[26%] -top-[20px]" stringLength={150} delay={0.5} size={0.7} />
-      <Lantern className="right-[1%] md:right-[12%] -top-[20px]" stringLength={280} delay={2.2} size={0.9} />
+      <Lantern className="left-[2%] sm:left-[8%] md:left-[12%] -top-[20px]" stringLength={180} delay={0} size={0.8} />
+      <Lantern className="left-[16%] md:left-[26%] -top-[20px] hidden sm:flex" stringLength={320} delay={1.5} size={0.65} />
+      <Lantern className="right-[16%] md:right-[26%] -top-[20px] hidden sm:flex" stringLength={150} delay={0.5} size={0.6} />
+      <Lantern className="right-[2%] sm:right-[8%] md:right-[12%] -top-[20px]" stringLength={280} delay={2.2} size={0.75} />
 
       {/* MAIN ARCH CARD */}
       <motion.div
-        className="relative z-20 w-[92vw] max-w-[500px] bg-[#5C0E22] rounded-t-[300px] rounded-b-3xl shadow-2xl flex flex-col items-center pb-14 pt-8 mt-2 md:mt-4"
+        className="relative z-20 mt-2 flex w-[min(92vw,460px)] max-w-full flex-col items-center rounded-t-[300px] rounded-b-3xl bg-gradient-to-b from-[#681B32] via-[#5C0E22] to-[#4A0E1A] px-5 pb-8 pt-6 shadow-2xl sm:px-8 sm:pb-10 sm:pt-7 md:mt-0 md:pb-11 md:pt-8"
         style={{
-          boxShadow: '0 20px 50px rgba(0,0,0,0.3), inset 0 2px 10px rgba(255,255,255,0.1)',
+          boxShadow: '0 24px 60px rgba(54,12,25,0.24), inset 0 2px 12px rgba(255,255,255,0.12)',
         }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -103,10 +126,10 @@ export function Landing() {
         transition={{ duration: 1, ease: 'easeOut' }}
       >
         {/* Inner Gold Border */}
-        <div className="absolute inset-[10px] md:inset-[14px] border border-[#C9A84C]/30 rounded-t-[290px] rounded-b-2xl pointer-events-none" />
+        <div className="pointer-events-none absolute inset-2.5 rounded-t-[290px] rounded-b-2xl border border-[#E8C96D]/35 sm:inset-3 md:inset-3.5" />
 
         {/* Ganesha Logo */}
-        <div className="relative w-36 h-36 md:w-44 md:h-44 mx-auto mt-4 mb-5 flex items-center justify-center shrink-0 bg-white rounded-full p-2 md:p-3 shadow-[0_0_20px_rgba(253,224,139,0.4)] border-2 border-[#E8C96D]">
+        <div className="relative mx-auto mb-4 mt-2 flex h-28 w-28 shrink-0 items-center justify-center rounded-full border-2 border-[#E8C96D] bg-white p-2 shadow-[0_0_28px_rgba(253,224,139,0.32)] sm:mb-5 sm:h-32 sm:w-32 md:h-36 md:w-36">
           <img 
             src="/assets/images/ganesha.png" 
             alt="Shree Ganeshay Namah" 
@@ -115,51 +138,52 @@ export function Landing() {
         </div>
 
         {/* Text Content */}
-        <div className="text-center px-6 md:px-8 relative z-10 w-full">
-          <p className="font-serif italic text-base md:text-lg text-[#E8C96D] mb-4 opacity-95">
+        <div className="relative z-10 w-full px-1 text-center sm:px-2">
+          <p className="mb-3 font-serif text-sm italic text-[#E8C96D] opacity-95 sm:mb-4 sm:text-base md:text-lg">
             Together with their families
           </p>
 
           <h1
-            className="font-serif uppercase text-4xl md:text-5xl text-[#E8C96D]"
+            className="font-serif text-4xl uppercase text-[#F0D47D] sm:text-5xl"
             style={{ letterSpacing: '0.15em' }}
           >
             {WEDDING.bride.name}
           </h1>
 
-          <p className="font-serif italic text-4xl md:text-5xl text-[#C9A84C] my-2 opacity-90">
+          <p className="my-1 font-serif text-3xl italic text-[#E8C96D] opacity-90 sm:my-2 sm:text-4xl">
             &amp;
           </p>
 
           <h1
-            className="font-serif uppercase text-4xl md:text-5xl text-[#E8C96D]"
+            className="font-serif text-4xl uppercase text-[#F0D47D] sm:text-5xl"
             style={{ letterSpacing: '0.15em' }}
           >
             {WEDDING.groom.name}
           </h1>
 
-          <p className="font-serif italic text-sm md:text-base text-[#E8C96D] mt-5 opacity-90 tracking-wide max-w-[300px] mx-auto leading-relaxed">
+          <p className="mx-auto mt-3 max-w-[280px] font-serif text-sm italic leading-relaxed tracking-wide text-[#F2D98A]/90 sm:mt-4 sm:text-base">
             cordially invite you to join the celebration of their union
           </p>
 
           {/* Date Section */}
-          <div className="flex items-center justify-center gap-3 md:gap-4 mt-8 w-full px-2">
-            <div className="flex flex-col items-center flex-1">
-              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#E8C96D] mb-2 opacity-95 font-semibold">
+          <div className="mx-auto mb-1 mt-5 h-px w-24 bg-gradient-to-r from-transparent via-[#E8C96D]/80 to-transparent sm:mt-6" />
+          <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2 px-0 sm:gap-4 sm:px-2">
+            <div className="flex min-w-0 flex-col items-center">
+              <span className="mb-2 whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.12em] text-[#F2D98A] opacity-95 sm:text-xs sm:tracking-[0.22em]">
                 Saturday
               </span>
-              <div className="w-full max-w-[90px] h-[1px] bg-[#C9A84C]/50" />
+              <div className="h-px w-full max-w-[72px] bg-[#E8C96D]/55" />
             </div>
 
-            <div className="text-6xl md:text-7xl font-serif text-[#E8C96D] mx-2" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
+            <div className="mx-1 font-serif text-5xl text-[#F0D47D] sm:mx-2 sm:text-6xl md:text-7xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
               05
             </div>
 
-            <div className="flex flex-col items-center flex-1">
-              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#E8C96D] mb-2 opacity-95 font-semibold">
+            <div className="flex min-w-0 flex-col items-center">
+              <span className="mb-2 whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.08em] text-[#F2D98A] opacity-95 sm:text-xs sm:tracking-[0.18em]">
                 December 2026
               </span>
-              <div className="w-full max-w-[90px] h-[1px] bg-[#C9A84C]/50" />
+              <div className="h-px w-full max-w-[72px] bg-[#E8C96D]/55" />
             </div>
           </div>
         </div>
@@ -167,7 +191,7 @@ export function Landing() {
 
       {/* Animated Scroll Down Indicator */}
       <motion.div
-        className="mt-5 flex flex-col items-center gap-1 text-[#C9A84C] pointer-events-none z-20"
+        className="pointer-events-none z-20 mt-4 flex flex-col items-center gap-1 text-[#A77B2B] sm:mt-5"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: [0.5, 1, 0.5], y: [0, 5, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}

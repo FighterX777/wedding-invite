@@ -28,48 +28,6 @@ export const WEDDING = {
 
 export const EVENTS = [
   {
-    id: 'haldi',
-    name: 'Haldi',
-    emoji: '🌸',
-    date: 'December 4, 2026',
-    time: '10:00 AM',
-    venue: 'Atrio Hotel by Devam, New Delhi',
-    dressCode: 'Yellow & White',
-    description:
-      'A vibrant morning ceremony blessing the couple with turmeric for prosperity and good luck.',
-    mapUrl: 'https://maps.google.com',
-    color: '#F5C542',
-    gradient: 'from-yellow-100 to-amber-50',
-  },
-  {
-    id: 'mehendi',
-    name: 'Mehendi',
-    emoji: '🌿',
-    date: 'December 4, 2026',
-    time: '4:00 PM',
-    venue: 'Atrio Hotel by Devam, New Delhi',
-    dressCode: 'Green & Floral',
-    description:
-      'An evening of intricate henna art, folk music, and celebration with the women of the family.',
-    mapUrl: 'https://maps.google.com',
-    color: '#4A7C59',
-    gradient: 'from-green-50 to-emerald-50',
-  },
-  {
-    id: 'sangeet',
-    name: 'Sangeet',
-    emoji: '🎶',
-    date: 'December 4, 2026',
-    time: '7:00 PM',
-    venue: 'Atrio Hotel by Devam, New Delhi',
-    dressCode: 'Cocktail / Indian Festive',
-    description:
-      'A night of music, dance performances, and unforgettable memories as both families come together.',
-    mapUrl: 'https://maps.google.com',
-    color: '#9B4F96',
-    gradient: 'from-purple-50 to-pink-50',
-  },
-  {
     id: 'wedding',
     name: 'Wedding',
     emoji: '💍',

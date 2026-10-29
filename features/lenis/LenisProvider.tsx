@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
+import { useWeddingStore } from '@/store/useWeddingStore';
 
 const LenisContext = createContext<Lenis | null>(null);
 
@@ -11,6 +12,7 @@ export function useLenis() {
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
+  const inviteOpened = useWeddingStore((state) => state.inviteOpened);
 
   useEffect(() => {
     // Disable Lenis on mobile/touch devices for native 60fps smooth momentum scrolling
@@ -37,6 +39,14 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       lenis.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    if (inviteOpened) {
+      lenisRef.current?.start();
+    } else {
+      lenisRef.current?.stop();
+    }
+  }, [inviteOpened]);
 
   return (
     <LenisContext.Provider value={lenisRef.current}>
