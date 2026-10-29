@@ -374,13 +374,19 @@ export function HeroScene() {
 
             {/* Open button wrapper ring */}
             <motion.div 
-              className="p-[6px] rounded-[100px] border border-[#C9A84C]/30 mb-2 backdrop-blur-sm pointer-events-auto"
+              className="relative mb-2 rounded-[100px] border border-[#C9A84C]/30 p-[6px] backdrop-blur-sm pointer-events-auto"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: opened ? 0 : 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.8 }}
             >
+              <motion.span
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-3 rounded-full bg-[#E8C96D]/45 blur-xl"
+                animate={{ opacity: [0.35, 0.85, 0.35], scale: [0.94, 1.08, 0.94] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+              />
               <motion.button
-                className="relative overflow-hidden block w-full h-full"
+                className="relative z-10 block h-full w-full overflow-hidden"
                 onClick={handleOpen}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
