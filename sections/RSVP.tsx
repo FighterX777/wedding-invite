@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart } from 'lucide-react';
+import { Heart, Phone } from 'lucide-react';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { GoldDivider } from '@/components/ui/GoldDivider';
 import { WEDDING } from '@/lib/constants';
@@ -89,6 +89,27 @@ export function RSVP() {
                     <p className="font-serif text-[#1A1A1A] text-sm">{value}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* Hotel contact */}
+              <div className="bg-[#F7F3EC] rounded-xl p-4 mb-8">
+                <p className="flex items-center justify-center gap-2 text-center text-[#C9A84C] text-[10px] tracking-[0.3em] uppercase font-sans mb-3">
+                  <Phone size={12} aria-hidden="true" />
+                  Hotel Contact
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center font-serif text-[#1A1A1A] text-lg">
+                  {['9870193062', '9599782200', '011-43337000'].map((number, index) => (
+                    <span key={number} className="flex items-center gap-x-4">
+                      {index > 0 && <span aria-hidden="true" className="text-[#C9A84C]">|</span>}
+                      <a
+                        href={`tel:${number.replace(/-/g, '')}`}
+                        className="whitespace-nowrap hover:text-[#C9A84C] transition-colors"
+                      >
+                        {number}
+                      </a>
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Map Embed */}
